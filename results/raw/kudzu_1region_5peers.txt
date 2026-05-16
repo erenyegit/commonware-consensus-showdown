@@ -1,0 +1,154 @@
+[2m2026-05-16T09:26:39.062637Z[0m [34mDEBUG[0m [2mcommonware_estimator[0m[2m:[0m Initializing simulator [3mpeers[0m[2m=[0m5 [3margs.distribution[0m[2m=[0m{"us-east-1": RegionConfig { count: 5, egress_cap: None, ingress_cap: None }}
+[2m2026-05-16T09:26:39.062699Z[0m [34mDEBUG[0m [2mestimator[0m[2m:[0m loading latency data
+
+results for proposer 0 (us-east-1):
+
+# Kudzu (without Coding)
+
+## Propose a block (32KB proposal)
+propose{0, size=32768}
+
+## Multicast notarize (32B digest + 8B view)
+wait{0, threshold=1}
+    [proposer] latency: 0.00ms
+    [us-east-1] mean: 0.80ms (stdv: 1.17ms) | median: 0.00ms
+broadcast{1, size=40}
+
+## Wait for 3f+1 to notarize to multicast finalize (32B digest + 8B view)
+wait{1, threshold=61%}
+    [proposer] latency: 3.00ms
+    [us-east-1] mean: 3.40ms (stdv: 0.49ms) | median: 3.00ms
+broadcast{2, size=40}
+
+## Wait for n-f or 3f+1 of finalize
+wait{1, threshold=81%} || wait{2, threshold=61%}
+    [proposer] latency: 5.00ms
+    [us-east-1] mean: 5.00ms (stdv: 1.10ms) | median: 5.00ms
+
+results for proposer 1 (us-east-1):
+
+# Kudzu (without Coding)
+
+## Propose a block (32KB proposal)
+propose{0, size=32768}
+
+## Multicast notarize (32B digest + 8B view)
+wait{0, threshold=1}
+    [proposer] latency: 0.00ms
+    [us-east-1] mean: 2.40ms (stdv: 2.06ms) | median: 3.00ms
+broadcast{1, size=40}
+
+## Wait for 3f+1 to notarize to multicast finalize (32B digest + 8B view)
+wait{1, threshold=61%}
+    [proposer] latency: 5.00ms
+    [us-east-1] mean: 6.80ms (stdv: 1.47ms) | median: 6.00ms
+broadcast{2, size=40}
+
+## Wait for n-f or 3f+1 of finalize
+wait{1, threshold=81%} || wait{2, threshold=61%}
+    [proposer] latency: 6.00ms
+    [us-east-1] mean: 8.00ms (stdv: 1.10ms) | median: 8.00ms
+
+results for proposer 2 (us-east-1):
+
+# Kudzu (without Coding)
+
+## Propose a block (32KB proposal)
+propose{0, size=32768}
+
+## Multicast notarize (32B digest + 8B view)
+wait{0, threshold=1}
+    [proposer] latency: 0.00ms
+    [us-east-1] mean: 2.40ms (stdv: 1.36ms) | median: 3.00ms
+broadcast{1, size=40}
+
+## Wait for 3f+1 to notarize to multicast finalize (32B digest + 8B view)
+wait{1, threshold=61%}
+    [proposer] latency: 6.00ms
+    [us-east-1] mean: 6.20ms (stdv: 0.98ms) | median: 6.00ms
+broadcast{2, size=40}
+
+## Wait for n-f or 3f+1 of finalize
+wait{1, threshold=81%} || wait{2, threshold=61%}
+    [proposer] latency: 9.00ms
+    [us-east-1] mean: 8.00ms (stdv: 1.79ms) | median: 9.00ms
+
+results for proposer 3 (us-east-1):
+
+# Kudzu (without Coding)
+
+## Propose a block (32KB proposal)
+propose{0, size=32768}
+
+## Multicast notarize (32B digest + 8B view)
+wait{0, threshold=1}
+    [proposer] latency: 0.00ms
+    [us-east-1] mean: 2.20ms (stdv: 1.60ms) | median: 2.00ms
+broadcast{1, size=40}
+
+## Wait for 3f+1 to notarize to multicast finalize (32B digest + 8B view)
+wait{1, threshold=61%}
+    [proposer] latency: 6.00ms
+    [us-east-1] mean: 4.80ms (stdv: 0.98ms) | median: 4.00ms
+broadcast{2, size=40}
+
+## Wait for n-f or 3f+1 of finalize
+wait{1, threshold=81%} || wait{2, threshold=61%}
+    [proposer] latency: 7.00ms
+    [us-east-1] mean: 7.00ms (stdv: 0.63ms) | median: 7.00ms
+
+results for proposer 4 (us-east-1):
+
+# Kudzu (without Coding)
+
+## Propose a block (32KB proposal)
+propose{0, size=32768}
+
+## Multicast notarize (32B digest + 8B view)
+wait{0, threshold=1}
+    [proposer] latency: 0.00ms
+    [us-east-1] mean: 2.80ms (stdv: 2.04ms) | median: 3.00ms
+broadcast{1, size=40}
+
+## Wait for 3f+1 to notarize to multicast finalize (32B digest + 8B view)
+wait{1, threshold=61%}
+    [proposer] latency: 7.00ms
+    [us-east-1] mean: 6.20ms (stdv: 1.60ms) | median: 5.00ms
+broadcast{2, size=40}
+
+## Wait for n-f or 3f+1 of finalize
+wait{1, threshold=81%} || wait{2, threshold=61%}
+    [proposer] latency: 10.00ms
+    [us-east-1] mean: 8.20ms (stdv: 1.60ms) | median: 8.00ms
+
+--------------------------------------------------------------------------------
+
+results:
+
+# Kudzu (without Coding)
+
+## Propose a block (32KB proposal)
+propose{0, size=32768}
+
+## Multicast notarize (32B digest + 8B view)
+wait{0, threshold=1}
+    [proposer] mean: 0.00ms (stdv: 0.00ms) | median: 0.00ms
+    [us-east-1] mean: 2.12ms (stdv: 1.82ms) | median: 2.00ms
+    [all] mean: 2.12ms (stdv: 1.82ms) | median: 2.00ms
+broadcast{1, size=40}
+
+## Wait for 3f+1 to notarize to multicast finalize (32B digest + 8B view)
+wait{1, threshold=61%}
+    [proposer] mean: 5.40ms (stdv: 1.36ms) | median: 6.00ms
+    [us-east-1] mean: 5.48ms (stdv: 1.70ms) | median: 5.00ms
+    [all] mean: 5.48ms (stdv: 1.70ms) | median: 5.00ms
+broadcast{2, size=40}
+
+## Wait for n-f or 3f+1 of finalize
+wait{1, threshold=81%} || wait{2, threshold=61%}
+    [proposer] mean: 7.40ms (stdv: 1.85ms) | median: 7.00ms
+    [us-east-1] mean: 7.24ms (stdv: 1.77ms) | median: 7.00ms
+    [all] mean: 7.24ms (stdv: 1.77ms) | median: 7.00ms
+warning: commonware-macros-impl@2026.4.0: stability cfg not set; set RUSTFLAGS="--cfg commonware_stability_X" (ALPHA/BETA/GAMMA/DELTA/EPSILON) to enforce stability gating
+    Finished `release` profile [optimized] target(s) in 0.17s
+     Running `/Users/erenyegit/Code/monorepo/target/release/commonware-estimator kudzu_small_block.lazy --distribution 'us-east-1:5'`

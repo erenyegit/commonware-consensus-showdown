@@ -1,0 +1,116 @@
+{
+  "algorithm": "Minimmit",
+  "stages": [
+    {
+      "command": "propose",
+      "params": "0",
+      "comment": "Propose a block",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "0, threshold=1",
+      "comment": "Multicast notarize",
+      "stats": {
+        "proposer": {
+          "mean_ms": 0.0,
+          "stdv_ms": 0.0,
+          "median_ms": 0.0
+        },
+        "ap-northeast-1": {
+          "mean_ms": 57.83,
+          "stdv_ms": 42.43,
+          "median_ms": 70.5
+        },
+        "eu-west-1": {
+          "mean_ms": 45.33,
+          "stdv_ms": 41.57,
+          "median_ms": 34.5
+        },
+        "us-east-1": {
+          "mean_ms": 37.67,
+          "stdv_ms": 30.2,
+          "median_ms": 36.0
+        },
+        "all": {
+          "mean_ms": 46.94,
+          "stdv_ms": 39.36,
+          "median_ms": 36.0
+        }
+      }
+    },
+    {
+      "command": "broadcast",
+      "params": "1",
+      "comment": "",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "1, threshold=41%",
+      "comment": "Wait for 2f+1 to notarize",
+      "stats": {
+        "proposer": {
+          "mean_ms": 95.83,
+          "stdv_ms": 39.85,
+          "median_ms": 70.0
+        },
+        "ap-northeast-1": {
+          "mean_ms": 109.75,
+          "stdv_ms": 30.97,
+          "median_ms": 103.5
+        },
+        "eu-west-1": {
+          "mean_ms": 68.58,
+          "stdv_ms": 27.29,
+          "median_ms": 68.5
+        },
+        "us-east-1": {
+          "mean_ms": 60.83,
+          "stdv_ms": 17.32,
+          "median_ms": 69.0
+        },
+        "all": {
+          "mean_ms": 79.72,
+          "stdv_ms": 33.6,
+          "median_ms": 75.5
+        }
+      }
+    },
+    {
+      "command": "wait",
+      "params": "1, threshold=81%",
+      "comment": "Wait for n-f to finalize",
+      "stats": {
+        "proposer": {
+          "mean_ms": 182.83,
+          "stdv_ms": 27.95,
+          "median_ms": 199.5
+        },
+        "ap-northeast-1": {
+          "mean_ms": 147.25,
+          "stdv_ms": 38.72,
+          "median_ms": 134.0
+        },
+        "eu-west-1": {
+          "mean_ms": 159.33,
+          "stdv_ms": 39.21,
+          "median_ms": 168.0
+        },
+        "us-east-1": {
+          "mean_ms": 150.67,
+          "stdv_ms": 17.27,
+          "median_ms": 143.5
+        },
+        "all": {
+          "mean_ms": 152.42,
+          "stdv_ms": 33.73,
+          "median_ms": 143.5
+        }
+      }
+    }
+  ],
+  "finality_mean_ms": 152.42,
+  "finality_median_ms": 143.5,
+  "rounds": 3
+}

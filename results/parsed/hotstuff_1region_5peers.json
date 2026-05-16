@@ -1,0 +1,128 @@
+{
+  "algorithm": "HotStuff",
+  "stages": [
+    {
+      "command": "propose",
+      "params": "0",
+      "comment": "Send PREPARE",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "0, threshold=1, delay=(0.1,1)",
+      "comment": "Reply to proposer PREPARE with VOTE(PREPARE)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 0.0,
+          "stdv_ms": 0.0,
+          "median_ms": 0.0
+        },
+        "us-east-1": {
+          "mean_ms": 2.12,
+          "stdv_ms": 1.82,
+          "median_ms": 2.0
+        },
+        "all": {
+          "mean_ms": 2.12,
+          "stdv_ms": 1.82,
+          "median_ms": 2.0
+        }
+      }
+    },
+    {
+      "command": "reply",
+      "params": "1",
+      "comment": "",
+      "stats": {}
+    },
+    {
+      "command": "collect",
+      "params": "1, threshold=67%, delay=(0.1,1)",
+      "comment": "Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 7.0,
+          "stdv_ms": 1.9,
+          "median_ms": 7.0
+        }
+      }
+    },
+    {
+      "command": "propose",
+      "params": "1",
+      "comment": "",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "1, threshold=1, delay=(0.1,1)",
+      "comment": "Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 8.0,
+          "stdv_ms": 1.9,
+          "median_ms": 8.0
+        },
+        "us-east-1": {
+          "mean_ms": 10.12,
+          "stdv_ms": 2.89,
+          "median_ms": 11.0
+        },
+        "all": {
+          "mean_ms": 10.12,
+          "stdv_ms": 2.89,
+          "median_ms": 11.0
+        }
+      }
+    },
+    {
+      "command": "reply",
+      "params": "2",
+      "comment": "",
+      "stats": {}
+    },
+    {
+      "command": "collect",
+      "params": "2, threshold=67%, delay=(0.1,1)",
+      "comment": "Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 15.0,
+          "stdv_ms": 3.35,
+          "median_ms": 15.0
+        }
+      }
+    },
+    {
+      "command": "propose",
+      "params": "3",
+      "comment": "",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "3, threshold=1, delay=(0.1,1)",
+      "comment": "Wait for proposer (COMMIT, QC_PRECOMMIT)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 16.0,
+          "stdv_ms": 3.35,
+          "median_ms": 16.0
+        },
+        "us-east-1": {
+          "mean_ms": 18.6,
+          "stdv_ms": 3.75,
+          "median_ms": 20.0
+        },
+        "all": {
+          "mean_ms": 18.6,
+          "stdv_ms": 3.75,
+          "median_ms": 20.0
+        }
+      }
+    }
+  ],
+  "finality_mean_ms": 18.6,
+  "finality_median_ms": 20.0,
+  "rounds": 5
+}

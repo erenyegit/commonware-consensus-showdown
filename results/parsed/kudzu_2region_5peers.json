@@ -1,0 +1,101 @@
+{
+  "algorithm": "Kudzu (without Coding)",
+  "stages": [
+    {
+      "command": "propose",
+      "params": "0, size=32768",
+      "comment": "Propose a block (32KB proposal)",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "0, threshold=1",
+      "comment": "Multicast notarize (32B digest + 8B view)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 0.0,
+          "stdv_ms": 0.0,
+          "median_ms": 0.0
+        },
+        "eu-west-1": {
+          "mean_ms": 21.2,
+          "stdv_ms": 16.97,
+          "median_ms": 33.0
+        },
+        "us-east-1": {
+          "mean_ms": 15.07,
+          "stdv_ms": 15.71,
+          "median_ms": 4.0
+        },
+        "all": {
+          "mean_ms": 17.52,
+          "stdv_ms": 16.5,
+          "median_ms": 5.0
+        }
+      }
+    },
+    {
+      "command": "broadcast",
+      "params": "1, size=40",
+      "comment": "",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "1, threshold=61%",
+      "comment": "Wait for 3f+1 to notarize to multicast finalize (32B digest + 8B view)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 67.0,
+          "stdv_ms": 2.19,
+          "median_ms": 67.0
+        },
+        "eu-west-1": {
+          "mean_ms": 49.8,
+          "stdv_ms": 14.38,
+          "median_ms": 39.0
+        },
+        "us-east-1": {
+          "mean_ms": 55.0,
+          "stdv_ms": 15.05,
+          "median_ms": 65.0
+        },
+        "all": {
+          "mean_ms": 52.92,
+          "stdv_ms": 15.0,
+          "median_ms": 64.0
+        }
+      }
+    },
+    {
+      "command": "broadcast",
+      "params": "2, size=40",
+      "comment": "",
+      "stats": {
+        "proposer": {
+          "mean_ms": 70.6,
+          "stdv_ms": 1.02,
+          "median_ms": 71.0
+        },
+        "eu-west-1": {
+          "mean_ms": 52.3,
+          "stdv_ms": 15.14,
+          "median_ms": 42.0
+        },
+        "us-east-1": {
+          "mean_ms": 57.87,
+          "stdv_ms": 16.29,
+          "median_ms": 70.0
+        },
+        "all": {
+          "mean_ms": 55.64,
+          "stdv_ms": 16.07,
+          "median_ms": 69.0
+        }
+      }
+    }
+  ],
+  "finality_mean_ms": 52.92,
+  "finality_median_ms": 64.0,
+  "rounds": 2
+}

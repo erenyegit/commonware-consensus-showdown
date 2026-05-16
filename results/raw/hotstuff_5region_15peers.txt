@@ -1,0 +1,746 @@
+[2m2026-05-16T09:26:37.238369Z[0m [34mDEBUG[0m [2mcommonware_estimator[0m[2m:[0m Initializing simulator [3mpeers[0m[2m=[0m15 [3margs.distribution[0m[2m=[0m{"ap-northeast-1": RegionConfig { count: 3, egress_cap: None, ingress_cap: None }, "eu-central-1": RegionConfig { count: 3, egress_cap: None, ingress_cap: None }, "eu-west-1": RegionConfig { count: 3, egress_cap: None, ingress_cap: None }, "sa-east-1": RegionConfig { count: 3, egress_cap: None, ingress_cap: None }, "us-east-1": RegionConfig { count: 3, egress_cap: None, ingress_cap: None }}
+[2m2026-05-16T09:26:37.238471Z[0m [34mDEBUG[0m [2mestimator[0m[2m:[0m loading latency data
+
+results for proposer 0 (ap-northeast-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 1.67ms (stdv: 1.25ms) | median: 2.00ms
+    [eu-central-1] mean: 113.33ms (stdv: 0.47ms) | median: 113.00ms
+    [eu-west-1] mean: 99.67ms (stdv: 1.25ms) | median: 100.00ms
+    [sa-east-1] mean: 131.33ms (stdv: 0.47ms) | median: 131.00ms
+    [us-east-1] mean: 72.67ms (stdv: 1.70ms) | median: 72.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 228.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 229.00ms
+    [ap-northeast-1] mean: 230.33ms (stdv: 1.25ms) | median: 230.00ms
+    [eu-central-1] mean: 340.67ms (stdv: 1.25ms) | median: 341.00ms
+    [eu-west-1] mean: 328.00ms (stdv: 2.16ms) | median: 327.00ms
+    [sa-east-1] mean: 355.67ms (stdv: 3.30ms) | median: 358.00ms
+    [us-east-1] mean: 305.33ms (stdv: 2.62ms) | median: 304.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 453.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 454.00ms
+    [ap-northeast-1] mean: 454.00ms (stdv: 0.00ms) | median: 454.00ms
+    [eu-central-1] mean: 567.00ms (stdv: 2.16ms) | median: 566.00ms
+    [eu-west-1] mean: 556.67ms (stdv: 2.62ms) | median: 558.00ms
+    [sa-east-1] mean: 583.00ms (stdv: 3.27ms) | median: 583.00ms
+    [us-east-1] mean: 528.33ms (stdv: 2.49ms) | median: 529.00ms
+
+results for proposer 1 (ap-northeast-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 0.00ms (stdv: 0.00ms) | median: 0.00ms
+    [eu-central-1] mean: 113.67ms (stdv: 2.49ms) | median: 113.00ms
+    [eu-west-1] mean: 102.00ms (stdv: 1.63ms) | median: 102.00ms
+    [sa-east-1] mean: 130.33ms (stdv: 0.47ms) | median: 130.00ms
+    [us-east-1] mean: 76.00ms (stdv: 2.16ms) | median: 75.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 231.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 232.00ms
+    [ap-northeast-1] mean: 232.33ms (stdv: 0.47ms) | median: 232.00ms
+    [eu-central-1] mean: 347.00ms (stdv: 0.00ms) | median: 347.00ms
+    [eu-west-1] mean: 334.33ms (stdv: 1.70ms) | median: 335.00ms
+    [sa-east-1] mean: 359.33ms (stdv: 2.36ms) | median: 361.00ms
+    [us-east-1] mean: 308.00ms (stdv: 2.16ms) | median: 309.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 462.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 463.00ms
+    [ap-northeast-1] mean: 463.33ms (stdv: 0.47ms) | median: 463.00ms
+    [eu-central-1] mean: 575.67ms (stdv: 0.47ms) | median: 576.00ms
+    [eu-west-1] mean: 565.67ms (stdv: 1.25ms) | median: 566.00ms
+    [sa-east-1] mean: 591.00ms (stdv: 2.16ms) | median: 590.00ms
+    [us-east-1] mean: 540.00ms (stdv: 0.82ms) | median: 540.00ms
+
+results for proposer 2 (ap-northeast-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 0.33ms (stdv: 0.47ms) | median: 0.00ms
+    [eu-central-1] mean: 112.00ms (stdv: 2.45ms) | median: 112.00ms
+    [eu-west-1] mean: 99.33ms (stdv: 3.09ms) | median: 101.00ms
+    [sa-east-1] mean: 129.00ms (stdv: 2.16ms) | median: 130.00ms
+    [us-east-1] mean: 72.00ms (stdv: 2.94ms) | median: 71.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 227.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 228.00ms
+    [ap-northeast-1] mean: 228.33ms (stdv: 0.47ms) | median: 228.00ms
+    [eu-central-1] mean: 340.33ms (stdv: 0.94ms) | median: 341.00ms
+    [eu-west-1] mean: 330.33ms (stdv: 4.64ms) | median: 332.00ms
+    [sa-east-1] mean: 357.00ms (stdv: 0.82ms) | median: 357.00ms
+    [us-east-1] mean: 303.67ms (stdv: 3.86ms) | median: 302.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 453.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 454.00ms
+    [ap-northeast-1] mean: 454.67ms (stdv: 0.94ms) | median: 454.00ms
+    [eu-central-1] mean: 566.67ms (stdv: 1.25ms) | median: 567.00ms
+    [eu-west-1] mean: 556.33ms (stdv: 0.94ms) | median: 557.00ms
+    [sa-east-1] mean: 581.00ms (stdv: 0.00ms) | median: 581.00ms
+    [us-east-1] mean: 526.67ms (stdv: 4.92ms) | median: 526.00ms
+
+results for proposer 3 (eu-central-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 113.67ms (stdv: 1.70ms) | median: 113.00ms
+    [eu-central-1] mean: 1.33ms (stdv: 1.25ms) | median: 1.00ms
+    [eu-west-1] mean: 12.67ms (stdv: 1.89ms) | median: 14.00ms
+    [sa-east-1] mean: 101.67ms (stdv: 0.94ms) | median: 101.00ms
+    [us-east-1] mean: 46.67ms (stdv: 1.25ms) | median: 47.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 204.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 205.00ms
+    [ap-northeast-1] mean: 318.67ms (stdv: 0.47ms) | median: 319.00ms
+    [eu-central-1] mean: 205.67ms (stdv: 0.47ms) | median: 206.00ms
+    [eu-west-1] mean: 217.00ms (stdv: 0.82ms) | median: 217.00ms
+    [sa-east-1] mean: 307.33ms (stdv: 0.94ms) | median: 308.00ms
+    [us-east-1] mean: 251.67ms (stdv: 0.47ms) | median: 252.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 411.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 412.00ms
+    [ap-northeast-1] mean: 526.00ms (stdv: 1.41ms) | median: 527.00ms
+    [eu-central-1] mean: 412.33ms (stdv: 0.47ms) | median: 412.00ms
+    [eu-west-1] mean: 426.00ms (stdv: 1.41ms) | median: 425.00ms
+    [sa-east-1] mean: 514.67ms (stdv: 1.25ms) | median: 515.00ms
+    [us-east-1] mean: 457.33ms (stdv: 0.47ms) | median: 457.00ms
+
+results for proposer 4 (eu-central-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 114.33ms (stdv: 1.70ms) | median: 115.00ms
+    [eu-central-1] mean: 1.67ms (stdv: 1.25ms) | median: 2.00ms
+    [eu-west-1] mean: 13.67ms (stdv: 0.94ms) | median: 13.00ms
+    [sa-east-1] mean: 102.67ms (stdv: 0.94ms) | median: 102.00ms
+    [us-east-1] mean: 44.00ms (stdv: 0.82ms) | median: 44.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 207.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 208.00ms
+    [ap-northeast-1] mean: 320.67ms (stdv: 2.36ms) | median: 319.00ms
+    [eu-central-1] mean: 209.00ms (stdv: 0.82ms) | median: 209.00ms
+    [eu-west-1] mean: 220.00ms (stdv: 1.63ms) | median: 220.00ms
+    [sa-east-1] mean: 310.67ms (stdv: 0.47ms) | median: 311.00ms
+    [us-east-1] mean: 254.00ms (stdv: 1.63ms) | median: 254.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 412.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 413.00ms
+    [ap-northeast-1] mean: 527.33ms (stdv: 1.25ms) | median: 527.00ms
+    [eu-central-1] mean: 414.33ms (stdv: 0.94ms) | median: 415.00ms
+    [eu-west-1] mean: 426.00ms (stdv: 0.82ms) | median: 426.00ms
+    [sa-east-1] mean: 513.00ms (stdv: 0.82ms) | median: 513.00ms
+    [us-east-1] mean: 459.00ms (stdv: 0.00ms) | median: 459.00ms
+
+results for proposer 5 (eu-central-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 112.33ms (stdv: 0.94ms) | median: 113.00ms
+    [eu-central-1] mean: 1.33ms (stdv: 0.94ms) | median: 2.00ms
+    [eu-west-1] mean: 13.33ms (stdv: 1.25ms) | median: 13.00ms
+    [sa-east-1] mean: 101.67ms (stdv: 0.47ms) | median: 102.00ms
+    [us-east-1] mean: 45.00ms (stdv: 0.82ms) | median: 45.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 205.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 206.00ms
+    [ap-northeast-1] mean: 320.00ms (stdv: 0.82ms) | median: 320.00ms
+    [eu-central-1] mean: 207.33ms (stdv: 1.89ms) | median: 206.00ms
+    [eu-west-1] mean: 218.67ms (stdv: 0.47ms) | median: 219.00ms
+    [sa-east-1] mean: 306.33ms (stdv: 0.47ms) | median: 306.00ms
+    [us-east-1] mean: 251.00ms (stdv: 0.82ms) | median: 251.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 409.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 410.00ms
+    [ap-northeast-1] mean: 523.00ms (stdv: 0.00ms) | median: 523.00ms
+    [eu-central-1] mean: 411.33ms (stdv: 0.94ms) | median: 412.00ms
+    [eu-west-1] mean: 423.67ms (stdv: 0.47ms) | median: 424.00ms
+    [sa-east-1] mean: 512.00ms (stdv: 0.82ms) | median: 512.00ms
+    [us-east-1] mean: 455.67ms (stdv: 0.47ms) | median: 456.00ms
+
+results for proposer 6 (eu-west-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 99.00ms (stdv: 2.83ms) | median: 97.00ms
+    [eu-central-1] mean: 12.00ms (stdv: 0.82ms) | median: 12.00ms
+    [eu-west-1] mean: 1.67ms (stdv: 1.25ms) | median: 2.00ms
+    [sa-east-1] mean: 88.67ms (stdv: 0.47ms) | median: 89.00ms
+    [us-east-1] mean: 35.33ms (stdv: 2.05ms) | median: 35.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 178.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 179.00ms
+    [ap-northeast-1] mean: 280.33ms (stdv: 3.30ms) | median: 278.00ms
+    [eu-central-1] mean: 192.00ms (stdv: 0.82ms) | median: 192.00ms
+    [eu-west-1] mean: 179.67ms (stdv: 0.94ms) | median: 179.00ms
+    [sa-east-1] mean: 268.00ms (stdv: 0.82ms) | median: 268.00ms
+    [us-east-1] mean: 212.00ms (stdv: 0.82ms) | median: 212.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 358.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 359.00ms
+    [ap-northeast-1] mean: 458.33ms (stdv: 1.70ms) | median: 459.00ms
+    [eu-central-1] mean: 373.00ms (stdv: 0.82ms) | median: 373.00ms
+    [eu-west-1] mean: 359.67ms (stdv: 0.94ms) | median: 359.00ms
+    [sa-east-1] mean: 448.00ms (stdv: 0.82ms) | median: 448.00ms
+    [us-east-1] mean: 393.67ms (stdv: 1.25ms) | median: 394.00ms
+
+results for proposer 7 (eu-west-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 100.67ms (stdv: 3.30ms) | median: 103.00ms
+    [eu-central-1] mean: 14.33ms (stdv: 0.94ms) | median: 15.00ms
+    [eu-west-1] mean: 0.00ms (stdv: 0.00ms) | median: 0.00ms
+    [sa-east-1] mean: 89.67ms (stdv: 1.25ms) | median: 90.00ms
+    [us-east-1] mean: 34.67ms (stdv: 2.05ms) | median: 35.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 179.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 180.00ms
+    [ap-northeast-1] mean: 281.67ms (stdv: 1.25ms) | median: 282.00ms
+    [eu-central-1] mean: 193.67ms (stdv: 0.47ms) | median: 194.00ms
+    [eu-west-1] mean: 180.67ms (stdv: 0.47ms) | median: 181.00ms
+    [sa-east-1] mean: 268.00ms (stdv: 0.82ms) | median: 268.00ms
+    [us-east-1] mean: 212.00ms (stdv: 1.63ms) | median: 212.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 358.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 359.00ms
+    [ap-northeast-1] mean: 461.33ms (stdv: 0.94ms) | median: 462.00ms
+    [eu-central-1] mean: 372.33ms (stdv: 1.25ms) | median: 372.00ms
+    [eu-west-1] mean: 359.67ms (stdv: 0.94ms) | median: 359.00ms
+    [sa-east-1] mean: 447.67ms (stdv: 0.94ms) | median: 447.00ms
+    [us-east-1] mean: 393.00ms (stdv: 1.63ms) | median: 393.00ms
+
+results for proposer 8 (eu-west-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 103.33ms (stdv: 4.78ms) | median: 101.00ms
+    [eu-central-1] mean: 14.00ms (stdv: 0.00ms) | median: 14.00ms
+    [eu-west-1] mean: 0.67ms (stdv: 0.94ms) | median: 0.00ms
+    [sa-east-1] mean: 86.33ms (stdv: 1.70ms) | median: 87.00ms
+    [us-east-1] mean: 35.00ms (stdv: 1.41ms) | median: 34.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 177.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 178.00ms
+    [ap-northeast-1] mean: 276.00ms (stdv: 1.41ms) | median: 275.00ms
+    [eu-central-1] mean: 190.67ms (stdv: 1.70ms) | median: 190.00ms
+    [eu-west-1] mean: 178.67ms (stdv: 0.94ms) | median: 178.00ms
+    [sa-east-1] mean: 267.33ms (stdv: 1.70ms) | median: 268.00ms
+    [us-east-1] mean: 213.00ms (stdv: 1.63ms) | median: 213.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 355.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 356.00ms
+    [ap-northeast-1] mean: 456.33ms (stdv: 3.09ms) | median: 458.00ms
+    [eu-central-1] mean: 369.67ms (stdv: 1.25ms) | median: 370.00ms
+    [eu-west-1] mean: 356.67ms (stdv: 0.47ms) | median: 357.00ms
+    [sa-east-1] mean: 445.67ms (stdv: 1.25ms) | median: 446.00ms
+    [us-east-1] mean: 389.67ms (stdv: 1.70ms) | median: 389.00ms
+
+results for proposer 9 (sa-east-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 127.33ms (stdv: 2.49ms) | median: 128.00ms
+    [eu-central-1] mean: 101.67ms (stdv: 0.94ms) | median: 101.00ms
+    [eu-west-1] mean: 88.33ms (stdv: 0.47ms) | median: 88.00ms
+    [sa-east-1] mean: 0.67ms (stdv: 0.47ms) | median: 1.00ms
+    [us-east-1] mean: 58.33ms (stdv: 0.94ms) | median: 59.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 205.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 206.00ms
+    [ap-northeast-1] mean: 337.00ms (stdv: 1.63ms) | median: 337.00ms
+    [eu-central-1] mean: 308.33ms (stdv: 0.47ms) | median: 308.00ms
+    [eu-west-1] mean: 294.33ms (stdv: 0.47ms) | median: 294.00ms
+    [sa-east-1] mean: 206.33ms (stdv: 0.47ms) | median: 206.00ms
+    [us-east-1] mean: 263.00ms (stdv: 0.82ms) | median: 263.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 410.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 411.00ms
+    [ap-northeast-1] mean: 540.00ms (stdv: 1.63ms) | median: 540.00ms
+    [eu-central-1] mean: 513.00ms (stdv: 0.82ms) | median: 513.00ms
+    [eu-west-1] mean: 499.67ms (stdv: 2.05ms) | median: 500.00ms
+    [sa-east-1] mean: 413.00ms (stdv: 1.41ms) | median: 414.00ms
+    [us-east-1] mean: 468.33ms (stdv: 0.94ms) | median: 469.00ms
+
+results for proposer 10 (sa-east-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 127.00ms (stdv: 0.82ms) | median: 127.00ms
+    [eu-central-1] mean: 102.33ms (stdv: 1.25ms) | median: 102.00ms
+    [eu-west-1] mean: 89.67ms (stdv: 0.94ms) | median: 89.00ms
+    [sa-east-1] mean: 2.33ms (stdv: 1.70ms) | median: 3.00ms
+    [us-east-1] mean: 57.00ms (stdv: 0.82ms) | median: 57.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 205.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 206.00ms
+    [ap-northeast-1] mean: 334.67ms (stdv: 3.30ms) | median: 334.00ms
+    [eu-central-1] mean: 308.67ms (stdv: 0.47ms) | median: 309.00ms
+    [eu-west-1] mean: 294.67ms (stdv: 1.25ms) | median: 295.00ms
+    [sa-east-1] mean: 206.33ms (stdv: 0.47ms) | median: 206.00ms
+    [us-east-1] mean: 262.33ms (stdv: 1.25ms) | median: 262.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 412.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 413.00ms
+    [ap-northeast-1] mean: 541.33ms (stdv: 3.09ms) | median: 543.00ms
+    [eu-central-1] mean: 514.67ms (stdv: 2.49ms) | median: 514.00ms
+    [eu-west-1] mean: 500.67ms (stdv: 1.70ms) | median: 500.00ms
+    [sa-east-1] mean: 413.00ms (stdv: 0.00ms) | median: 413.00ms
+    [us-east-1] mean: 471.33ms (stdv: 0.47ms) | median: 471.00ms
+
+results for proposer 11 (sa-east-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 130.00ms (stdv: 0.82ms) | median: 130.00ms
+    [eu-central-1] mean: 102.00ms (stdv: 0.82ms) | median: 102.00ms
+    [eu-west-1] mean: 88.67ms (stdv: 1.89ms) | median: 90.00ms
+    [sa-east-1] mean: 1.00ms (stdv: 0.82ms) | median: 1.00ms
+    [us-east-1] mean: 57.00ms (stdv: 0.82ms) | median: 57.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 205.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 206.00ms
+    [ap-northeast-1] mean: 335.33ms (stdv: 1.70ms) | median: 336.00ms
+    [eu-central-1] mean: 308.00ms (stdv: 1.63ms) | median: 308.00ms
+    [eu-west-1] mean: 295.33ms (stdv: 2.05ms) | median: 295.00ms
+    [sa-east-1] mean: 207.33ms (stdv: 1.89ms) | median: 206.00ms
+    [us-east-1] mean: 263.00ms (stdv: 1.63ms) | median: 263.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 411.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 412.00ms
+    [ap-northeast-1] mean: 540.00ms (stdv: 0.82ms) | median: 540.00ms
+    [eu-central-1] mean: 513.33ms (stdv: 1.70ms) | median: 514.00ms
+    [eu-west-1] mean: 501.00ms (stdv: 0.00ms) | median: 501.00ms
+    [sa-east-1] mean: 413.00ms (stdv: 0.82ms) | median: 413.00ms
+    [us-east-1] mean: 470.00ms (stdv: 2.16ms) | median: 471.00ms
+
+results for proposer 12 (us-east-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 75.00ms (stdv: 3.74ms) | median: 76.00ms
+    [eu-central-1] mean: 47.00ms (stdv: 1.63ms) | median: 47.00ms
+    [eu-west-1] mean: 35.33ms (stdv: 1.25ms) | median: 35.00ms
+    [sa-east-1] mean: 57.67ms (stdv: 2.62ms) | median: 59.00ms
+    [us-east-1] mean: 3.00ms (stdv: 2.16ms) | median: 4.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 115.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 116.00ms
+    [ap-northeast-1] mean: 192.00ms (stdv: 1.41ms) | median: 191.00ms
+    [eu-central-1] mean: 159.33ms (stdv: 2.05ms) | median: 159.00ms
+    [eu-west-1] mean: 149.67ms (stdv: 4.19ms) | median: 151.00ms
+    [sa-east-1] mean: 171.00ms (stdv: 1.41ms) | median: 172.00ms
+    [us-east-1] mean: 118.00ms (stdv: 1.63ms) | median: 118.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 230.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 231.00ms
+    [ap-northeast-1] mean: 304.67ms (stdv: 3.40ms) | median: 306.00ms
+    [eu-central-1] mean: 279.00ms (stdv: 1.41ms) | median: 278.00ms
+    [eu-west-1] mean: 267.67ms (stdv: 0.47ms) | median: 268.00ms
+    [sa-east-1] mean: 288.00ms (stdv: 2.83ms) | median: 286.00ms
+    [us-east-1] mean: 233.33ms (stdv: 1.70ms) | median: 234.00ms
+
+results for proposer 13 (us-east-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 79.00ms (stdv: 0.00ms) | median: 79.00ms
+    [eu-central-1] mean: 47.33ms (stdv: 1.89ms) | median: 46.00ms
+    [eu-west-1] mean: 36.00ms (stdv: 2.94ms) | median: 37.00ms
+    [sa-east-1] mean: 58.33ms (stdv: 0.94ms) | median: 59.00ms
+    [us-east-1] mean: 2.67ms (stdv: 2.49ms) | median: 2.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 116.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 117.00ms
+    [ap-northeast-1] mean: 192.00ms (stdv: 1.63ms) | median: 192.00ms
+    [eu-central-1] mean: 161.67ms (stdv: 2.87ms) | median: 162.00ms
+    [eu-west-1] mean: 153.00ms (stdv: 0.00ms) | median: 153.00ms
+    [sa-east-1] mean: 175.33ms (stdv: 1.25ms) | median: 175.00ms
+    [us-east-1] mean: 119.00ms (stdv: 1.63ms) | median: 119.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 232.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 233.00ms
+    [ap-northeast-1] mean: 308.00ms (stdv: 4.08ms) | median: 308.00ms
+    [eu-central-1] mean: 279.67ms (stdv: 1.25ms) | median: 280.00ms
+    [eu-west-1] mean: 267.00ms (stdv: 0.82ms) | median: 267.00ms
+    [sa-east-1] mean: 291.00ms (stdv: 0.00ms) | median: 291.00ms
+    [us-east-1] mean: 233.67ms (stdv: 0.94ms) | median: 233.00ms
+
+results for proposer 14 (us-east-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 74.67ms (stdv: 2.05ms) | median: 75.00ms
+    [eu-central-1] mean: 49.33ms (stdv: 3.77ms) | median: 52.00ms
+    [eu-west-1] mean: 32.00ms (stdv: 0.82ms) | median: 32.00ms
+    [sa-east-1] mean: 57.00ms (stdv: 1.41ms) | median: 58.00ms
+    [us-east-1] mean: 1.67ms (stdv: 1.25ms) | median: 2.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 117.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 118.00ms
+    [ap-northeast-1] mean: 189.67ms (stdv: 1.25ms) | median: 190.00ms
+    [eu-central-1] mean: 162.67ms (stdv: 0.47ms) | median: 163.00ms
+    [eu-west-1] mean: 151.33ms (stdv: 1.25ms) | median: 151.00ms
+    [sa-east-1] mean: 175.33ms (stdv: 0.94ms) | median: 176.00ms
+    [us-east-1] mean: 119.00ms (stdv: 1.41ms) | median: 118.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 232.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 233.00ms
+    [ap-northeast-1] mean: 308.67ms (stdv: 1.89ms) | median: 310.00ms
+    [eu-central-1] mean: 280.33ms (stdv: 1.25ms) | median: 280.00ms
+    [eu-west-1] mean: 269.33ms (stdv: 1.25ms) | median: 269.00ms
+    [sa-east-1] mean: 289.33ms (stdv: 2.36ms) | median: 291.00ms
+    [us-east-1] mean: 235.67ms (stdv: 2.05ms) | median: 236.00ms
+
+--------------------------------------------------------------------------------
+
+results:
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] mean: 0.00ms (stdv: 0.00ms) | median: 0.00ms
+    [ap-northeast-1] mean: 83.89ms (stdv: 45.04ms) | median: 101.00ms
+    [eu-central-1] mean: 55.56ms (stdv: 45.24ms) | median: 47.00ms
+    [eu-west-1] mean: 47.53ms (stdv: 40.13ms) | median: 34.00ms
+    [sa-east-1] mean: 75.89ms (stdv: 44.02ms) | median: 88.00ms
+    [us-east-1] mean: 42.73ms (stdv: 23.98ms) | median: 45.00ms
+    [all] mean: 61.12ms (stdv: 43.56ms) | median: 59.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] mean: 186.60ms (stdv: 38.79ms) | median: 205.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] mean: 187.60ms (stdv: 38.79ms) | median: 206.00ms
+    [ap-northeast-1] mean: 271.27ms (stdv: 54.18ms) | median: 278.00ms
+    [eu-central-1] mean: 242.33ms (stdv: 70.39ms) | median: 206.00ms
+    [eu-west-1] mean: 235.04ms (stdv: 68.02ms) | median: 218.00ms
+    [sa-east-1] mean: 262.76ms (stdv: 66.47ms) | median: 268.00ms
+    [us-east-1] mean: 230.33ms (stdv: 63.28ms) | median: 252.00ms
+    [all] mean: 248.35ms (stdv: 66.65ms) | median: 252.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] mean: 373.20ms (stdv: 77.59ms) | median: 410.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] mean: 374.20ms (stdv: 77.59ms) | median: 411.00ms
+    [ap-northeast-1] mean: 457.80ms (stdv: 82.66ms) | median: 462.00ms
+    [eu-central-1] mean: 429.49ms (stdv: 102.83ms) | median: 412.00ms
+    [eu-west-1] mean: 422.38ms (stdv: 102.80ms) | median: 425.00ms
+    [sa-east-1] mean: 449.56ms (stdv: 99.41ms) | median: 447.00ms
+    [us-east-1] mean: 417.04ms (stdv: 101.65ms) | median: 457.00ms
+    [all] mean: 435.25ms (stdv: 99.43ms) | median: 454.00ms
+warning: commonware-macros-impl@2026.4.0: stability cfg not set; set RUSTFLAGS="--cfg commonware_stability_X" (ALPHA/BETA/GAMMA/DELTA/EPSILON) to enforce stability gating
+    Finished `release` profile [optimized] target(s) in 0.16s
+     Running `/Users/erenyegit/Code/monorepo/target/release/commonware-estimator hotstuff.lazy --distribution 'us-east-1:3,eu-west-1:3,ap-northeast-1:3,sa-east-1:3,eu-central-1:3'`

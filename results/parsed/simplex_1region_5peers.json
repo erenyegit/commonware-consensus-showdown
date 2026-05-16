@@ -1,0 +1,92 @@
+{
+  "algorithm": "Simplex",
+  "stages": [
+    {
+      "command": "propose",
+      "params": "0",
+      "comment": "Propose a block",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "0, threshold=1",
+      "comment": "Multicast notarize",
+      "stats": {
+        "proposer": {
+          "mean_ms": 0.0,
+          "stdv_ms": 0.0,
+          "median_ms": 0.0
+        },
+        "us-east-1": {
+          "mean_ms": 2.12,
+          "stdv_ms": 1.82,
+          "median_ms": 2.0
+        },
+        "all": {
+          "mean_ms": 2.12,
+          "stdv_ms": 1.82,
+          "median_ms": 2.0
+        }
+      }
+    },
+    {
+      "command": "broadcast",
+      "params": "1",
+      "comment": "",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "1, threshold=67%",
+      "comment": "Multicast finalize after observing 2f+1 notarize",
+      "stats": {
+        "proposer": {
+          "mean_ms": 5.4,
+          "stdv_ms": 1.36,
+          "median_ms": 6.0
+        },
+        "us-east-1": {
+          "mean_ms": 5.48,
+          "stdv_ms": 1.7,
+          "median_ms": 5.0
+        },
+        "all": {
+          "mean_ms": 5.48,
+          "stdv_ms": 1.7,
+          "median_ms": 5.0
+        }
+      }
+    },
+    {
+      "command": "broadcast",
+      "params": "2",
+      "comment": "",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "2, threshold=67%",
+      "comment": "Wait for 2f+1 finalize",
+      "stats": {
+        "proposer": {
+          "mean_ms": 8.8,
+          "stdv_ms": 1.17,
+          "median_ms": 9.0
+        },
+        "us-east-1": {
+          "mean_ms": 8.8,
+          "stdv_ms": 1.9,
+          "median_ms": 9.0
+        },
+        "all": {
+          "mean_ms": 8.8,
+          "stdv_ms": 1.9,
+          "median_ms": 9.0
+        }
+      }
+    }
+  ],
+  "finality_mean_ms": 8.8,
+  "finality_median_ms": 9.0,
+  "rounds": 3
+}

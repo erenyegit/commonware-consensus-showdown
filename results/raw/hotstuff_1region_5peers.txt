@@ -1,0 +1,214 @@
+[2m2026-05-16T09:26:35.226395Z[0m [34mDEBUG[0m [2mcommonware_estimator[0m[2m:[0m Initializing simulator [3mpeers[0m[2m=[0m5 [3margs.distribution[0m[2m=[0m{"us-east-1": RegionConfig { count: 5, egress_cap: None, ingress_cap: None }}
+[2m2026-05-16T09:26:35.226499Z[0m [34mDEBUG[0m [2mestimator[0m[2m:[0m loading latency data
+
+results for proposer 0 (us-east-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [us-east-1] mean: 0.80ms (stdv: 1.17ms) | median: 0.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 4.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 5.00ms
+    [us-east-1] mean: 5.80ms (stdv: 1.17ms) | median: 5.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 9.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 10.00ms
+    [us-east-1] mean: 12.40ms (stdv: 1.85ms) | median: 12.00ms
+
+results for proposer 1 (us-east-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [us-east-1] mean: 2.40ms (stdv: 2.06ms) | median: 3.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 7.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 8.00ms
+    [us-east-1] mean: 10.60ms (stdv: 1.36ms) | median: 11.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 17.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 18.00ms
+    [us-east-1] mean: 20.60ms (stdv: 1.50ms) | median: 21.00ms
+
+results for proposer 2 (us-east-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [us-east-1] mean: 2.40ms (stdv: 1.36ms) | median: 3.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 10.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 11.00ms
+    [us-east-1] mean: 13.20ms (stdv: 2.04ms) | median: 13.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 19.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 20.00ms
+    [us-east-1] mean: 21.80ms (stdv: 1.17ms) | median: 22.00ms
+
+results for proposer 3 (us-east-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [us-east-1] mean: 2.20ms (stdv: 1.60ms) | median: 2.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 7.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 8.00ms
+    [us-east-1] mean: 11.00ms (stdv: 1.55ms) | median: 12.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 15.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 16.00ms
+    [us-east-1] mean: 20.00ms (stdv: 2.10ms) | median: 21.00ms
+
+results for proposer 4 (us-east-1):
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 0.00ms
+    [us-east-1] mean: 2.80ms (stdv: 2.04ms) | median: 3.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 7.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 8.00ms
+    [us-east-1] mean: 10.00ms (stdv: 1.67ms) | median: 11.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] latency: 15.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] latency: 16.00ms
+    [us-east-1] mean: 18.20ms (stdv: 2.04ms) | median: 18.00ms
+
+--------------------------------------------------------------------------------
+
+results:
+
+# HotStuff
+
+## Send PREPARE
+propose{0}
+
+## Reply to proposer PREPARE with VOTE(PREPARE)
+wait{0, threshold=1, delay=(0.1,1)}
+    [proposer] mean: 0.00ms (stdv: 0.00ms) | median: 0.00ms
+    [us-east-1] mean: 2.12ms (stdv: 1.82ms) | median: 2.00ms
+    [all] mean: 2.12ms (stdv: 1.82ms) | median: 2.00ms
+reply{1}
+
+## Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)
+collect{1, threshold=67%, delay=(0.1,1)}
+    [proposer] mean: 7.00ms (stdv: 1.90ms) | median: 7.00ms
+propose{1}
+
+## Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)
+wait{1, threshold=1, delay=(0.1,1)}
+    [proposer] mean: 8.00ms (stdv: 1.90ms) | median: 8.00ms
+    [us-east-1] mean: 10.12ms (stdv: 2.89ms) | median: 11.00ms
+    [all] mean: 10.12ms (stdv: 2.89ms) | median: 11.00ms
+reply{2}
+
+## Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)
+collect{2, threshold=67%, delay=(0.1,1)}
+    [proposer] mean: 15.00ms (stdv: 3.35ms) | median: 15.00ms
+propose{3}
+
+## Wait for proposer (COMMIT, QC_PRECOMMIT)
+wait{3, threshold=1, delay=(0.1,1)}
+    [proposer] mean: 16.00ms (stdv: 3.35ms) | median: 16.00ms
+    [us-east-1] mean: 18.60ms (stdv: 3.75ms) | median: 20.00ms
+    [all] mean: 18.60ms (stdv: 3.75ms) | median: 20.00ms
+warning: commonware-macros-impl@2026.4.0: stability cfg not set; set RUSTFLAGS="--cfg commonware_stability_X" (ALPHA/BETA/GAMMA/DELTA/EPSILON) to enforce stability gating
+    Finished `release` profile [optimized] target(s) in 0.17s
+     Running `/Users/erenyegit/Code/monorepo/target/release/commonware-estimator hotstuff.lazy --distribution 'us-east-1:5'`

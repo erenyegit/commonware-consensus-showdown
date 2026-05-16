@@ -1,0 +1,263 @@
+{
+  "algorithm": "HotStuff",
+  "stages": [
+    {
+      "command": "propose",
+      "params": "0",
+      "comment": "Send PREPARE",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "0, threshold=1, delay=(0.1,1)",
+      "comment": "Reply to proposer PREPARE with VOTE(PREPARE)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 0.0,
+          "stdv_ms": 0.0,
+          "median_ms": 0.0
+        },
+        "ap-northeast-1": {
+          "mean_ms": 73.48,
+          "stdv_ms": 41.53,
+          "median_ms": 73.0
+        },
+        "ap-northeast-2": {
+          "mean_ms": 81.88,
+          "stdv_ms": 44.62,
+          "median_ms": 81.0
+        },
+        "ap-south-1": {
+          "mean_ms": 77.68,
+          "stdv_ms": 37.15,
+          "median_ms": 72.5
+        },
+        "ap-southeast-2": {
+          "mean_ms": 91.53,
+          "stdv_ms": 43.98,
+          "median_ms": 87.5
+        },
+        "eu-central-1": {
+          "mean_ms": 66.26,
+          "stdv_ms": 44.58,
+          "median_ms": 71.5
+        },
+        "eu-north-1": {
+          "mean_ms": 73.99,
+          "stdv_ms": 48.04,
+          "median_ms": 79.5
+        },
+        "eu-west-1": {
+          "mean_ms": 62.66,
+          "stdv_ms": 42.43,
+          "median_ms": 63.0
+        },
+        "sa-east-1": {
+          "mean_ms": 102.43,
+          "stdv_ms": 45.13,
+          "median_ms": 106.5
+        },
+        "us-east-1": {
+          "mean_ms": 57.99,
+          "stdv_ms": 29.2,
+          "median_ms": 56.0
+        },
+        "us-west-1": {
+          "mean_ms": 64.76,
+          "stdv_ms": 29.97,
+          "median_ms": 67.0
+        },
+        "all": {
+          "mean_ms": 75.26,
+          "stdv_ms": 43.15,
+          "median_ms": 74.0
+        }
+      }
+    },
+    {
+      "command": "reply",
+      "params": "1",
+      "comment": "",
+      "stats": {}
+    },
+    {
+      "command": "collect",
+      "params": "1, threshold=67%, delay=(0.1,1)",
+      "comment": "Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 203.03,
+          "stdv_ms": 38.56,
+          "median_ms": 205.0
+        }
+      }
+    },
+    {
+      "command": "propose",
+      "params": "1",
+      "comment": "",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "1, threshold=1, delay=(0.1,1)",
+      "comment": "Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 204.03,
+          "stdv_ms": 38.56,
+          "median_ms": 206.0
+        },
+        "ap-northeast-1": {
+          "mean_ms": 277.36,
+          "stdv_ms": 60.57,
+          "median_ms": 262.5
+        },
+        "ap-northeast-2": {
+          "mean_ms": 285.27,
+          "stdv_ms": 62.62,
+          "median_ms": 268.5
+        },
+        "ap-south-1": {
+          "mean_ms": 281.39,
+          "stdv_ms": 62.33,
+          "median_ms": 274.5
+        },
+        "ap-southeast-2": {
+          "mean_ms": 295.5,
+          "stdv_ms": 59.2,
+          "median_ms": 280.5
+        },
+        "eu-central-1": {
+          "mean_ms": 271.18,
+          "stdv_ms": 70.4,
+          "median_ms": 235.0
+        },
+        "eu-north-1": {
+          "mean_ms": 278.24,
+          "stdv_ms": 71.07,
+          "median_ms": 239.0
+        },
+        "eu-west-1": {
+          "mean_ms": 267.01,
+          "stdv_ms": 70.52,
+          "median_ms": 233.0
+        },
+        "sa-east-1": {
+          "mean_ms": 306.53,
+          "stdv_ms": 58.1,
+          "median_ms": 308.0
+        },
+        "us-east-1": {
+          "mean_ms": 261.38,
+          "stdv_ms": 60.28,
+          "median_ms": 267.0
+        },
+        "us-west-1": {
+          "mean_ms": 268.51,
+          "stdv_ms": 58.34,
+          "median_ms": 277.5
+        },
+        "all": {
+          "mean_ms": 279.24,
+          "stdv_ms": 64.87,
+          "median_ms": 270.5
+        }
+      }
+    },
+    {
+      "command": "reply",
+      "params": "2",
+      "comment": "",
+      "stats": {}
+    },
+    {
+      "command": "collect",
+      "params": "2, threshold=67%, delay=(0.1,1)",
+      "comment": "Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 406.47,
+          "stdv_ms": 77.43,
+          "median_ms": 410.5
+        }
+      }
+    },
+    {
+      "command": "propose",
+      "params": "3",
+      "comment": "",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "3, threshold=1, delay=(0.1,1)",
+      "comment": "Wait for proposer (COMMIT, QC_PRECOMMIT)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 407.47,
+          "stdv_ms": 77.43,
+          "median_ms": 411.5
+        },
+        "ap-northeast-1": {
+          "mean_ms": 480.66,
+          "stdv_ms": 92.32,
+          "median_ms": 474.0
+        },
+        "ap-northeast-2": {
+          "mean_ms": 490.26,
+          "stdv_ms": 93.73,
+          "median_ms": 474.5
+        },
+        "ap-south-1": {
+          "mean_ms": 484.46,
+          "stdv_ms": 96.96,
+          "median_ms": 475.5
+        },
+        "ap-southeast-2": {
+          "mean_ms": 498.98,
+          "stdv_ms": 89.86,
+          "median_ms": 498.5
+        },
+        "eu-central-1": {
+          "mean_ms": 474.49,
+          "stdv_ms": 104.62,
+          "median_ms": 438.5
+        },
+        "eu-north-1": {
+          "mean_ms": 481.51,
+          "stdv_ms": 104.51,
+          "median_ms": 439.0
+        },
+        "eu-west-1": {
+          "mean_ms": 470.21,
+          "stdv_ms": 105.08,
+          "median_ms": 450.0
+        },
+        "sa-east-1": {
+          "mean_ms": 509.9,
+          "stdv_ms": 87.86,
+          "median_ms": 519.5
+        },
+        "us-east-1": {
+          "mean_ms": 466.39,
+          "stdv_ms": 96.39,
+          "median_ms": 472.0
+        },
+        "us-west-1": {
+          "mean_ms": 472.16,
+          "stdv_ms": 93.74,
+          "median_ms": 476.5
+        },
+        "all": {
+          "mean_ms": 482.9,
+          "stdv_ms": 97.55,
+          "median_ms": 473.0
+        }
+      }
+    }
+  ],
+  "finality_mean_ms": 482.9,
+  "finality_median_ms": 473.0,
+  "rounds": 5
+}

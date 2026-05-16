@@ -1,0 +1,158 @@
+{
+  "algorithm": "HotStuff",
+  "stages": [
+    {
+      "command": "propose",
+      "params": "0",
+      "comment": "Send PREPARE",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "0, threshold=1, delay=(0.1,1)",
+      "comment": "Reply to proposer PREPARE with VOTE(PREPARE)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 0.0,
+          "stdv_ms": 0.0,
+          "median_ms": 0.0
+        },
+        "ap-northeast-1": {
+          "mean_ms": 57.83,
+          "stdv_ms": 42.43,
+          "median_ms": 70.5
+        },
+        "eu-west-1": {
+          "mean_ms": 45.33,
+          "stdv_ms": 41.57,
+          "median_ms": 34.5
+        },
+        "us-east-1": {
+          "mean_ms": 37.67,
+          "stdv_ms": 30.2,
+          "median_ms": 36.0
+        },
+        "all": {
+          "mean_ms": 46.94,
+          "stdv_ms": 39.36,
+          "median_ms": 36.0
+        }
+      }
+    },
+    {
+      "command": "reply",
+      "params": "1",
+      "comment": "",
+      "stats": {}
+    },
+    {
+      "command": "collect",
+      "params": "1, threshold=67%, delay=(0.1,1)",
+      "comment": "Collect VOTE(PREPARE) from 67% of the network and then broadcast (PRECOMMIT, QC_PREPARE)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 181.33,
+          "stdv_ms": 26.61,
+          "median_ms": 197.5
+        }
+      }
+    },
+    {
+      "command": "propose",
+      "params": "1",
+      "comment": "",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "1, threshold=1, delay=(0.1,1)",
+      "comment": "Reply to proposer (PRECOMMIT, QC_PREPARE) with VOTE(PRECOMMIT)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 182.33,
+          "stdv_ms": 26.61,
+          "median_ms": 198.5
+        },
+        "ap-northeast-1": {
+          "mean_ms": 240.67,
+          "stdv_ms": 45.16,
+          "median_ms": 219.5
+        },
+        "eu-west-1": {
+          "mean_ms": 228.0,
+          "stdv_ms": 52.3,
+          "median_ms": 204.0
+        },
+        "us-east-1": {
+          "mean_ms": 219.42,
+          "stdv_ms": 54.12,
+          "median_ms": 239.5
+        },
+        "all": {
+          "mean_ms": 229.36,
+          "stdv_ms": 51.42,
+          "median_ms": 219.5
+        }
+      }
+    },
+    {
+      "command": "reply",
+      "params": "2",
+      "comment": "",
+      "stats": {}
+    },
+    {
+      "command": "collect",
+      "params": "2, threshold=67%, delay=(0.1,1)",
+      "comment": "Collect VOTE(PRECOMMIT) from 67% of the network and then broadcast (COMMIT, QC_PRECOMMIT)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 365.0,
+          "stdv_ms": 48.21,
+          "median_ms": 395.5
+        }
+      }
+    },
+    {
+      "command": "propose",
+      "params": "3",
+      "comment": "",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "3, threshold=1, delay=(0.1,1)",
+      "comment": "Wait for proposer (COMMIT, QC_PRECOMMIT)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 366.0,
+          "stdv_ms": 48.21,
+          "median_ms": 396.5
+        },
+        "ap-northeast-1": {
+          "mean_ms": 424.25,
+          "stdv_ms": 57.64,
+          "median_ms": 398.0
+        },
+        "eu-west-1": {
+          "mean_ms": 410.58,
+          "stdv_ms": 68.45,
+          "median_ms": 404.5
+        },
+        "us-east-1": {
+          "mean_ms": 402.42,
+          "stdv_ms": 74.35,
+          "median_ms": 438.0
+        },
+        "all": {
+          "mean_ms": 412.42,
+          "stdv_ms": 67.77,
+          "median_ms": 404.5
+        }
+      }
+    }
+  ],
+  "finality_mean_ms": 412.42,
+  "finality_median_ms": 404.5,
+  "rounds": 5
+}

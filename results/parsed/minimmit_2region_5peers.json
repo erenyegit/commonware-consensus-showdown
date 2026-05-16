@@ -1,0 +1,101 @@
+{
+  "algorithm": "Minimmit",
+  "stages": [
+    {
+      "command": "propose",
+      "params": "0",
+      "comment": "Propose a block",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "0, threshold=1",
+      "comment": "Multicast notarize",
+      "stats": {
+        "proposer": {
+          "mean_ms": 0.0,
+          "stdv_ms": 0.0,
+          "median_ms": 0.0
+        },
+        "eu-west-1": {
+          "mean_ms": 21.2,
+          "stdv_ms": 16.97,
+          "median_ms": 33.0
+        },
+        "us-east-1": {
+          "mean_ms": 15.07,
+          "stdv_ms": 15.71,
+          "median_ms": 4.0
+        },
+        "all": {
+          "mean_ms": 17.52,
+          "stdv_ms": 16.5,
+          "median_ms": 5.0
+        }
+      }
+    },
+    {
+      "command": "broadcast",
+      "params": "1",
+      "comment": "",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "1, threshold=41%",
+      "comment": "Wait for 2f+1 to notarize",
+      "stats": {
+        "proposer": {
+          "mean_ms": 31.0,
+          "stdv_ms": 28.22,
+          "median_ms": 9.0
+        },
+        "eu-west-1": {
+          "mean_ms": 48.5,
+          "stdv_ms": 13.99,
+          "median_ms": 38.5
+        },
+        "us-east-1": {
+          "mean_ms": 18.6,
+          "stdv_ms": 14.1,
+          "median_ms": 8.0
+        },
+        "all": {
+          "mean_ms": 30.56,
+          "stdv_ms": 20.3,
+          "median_ms": 36.0
+        }
+      }
+    },
+    {
+      "command": "wait",
+      "params": "1, threshold=81%",
+      "comment": "Wait for n-f to finalize",
+      "stats": {
+        "proposer": {
+          "mean_ms": 70.6,
+          "stdv_ms": 1.02,
+          "median_ms": 71.0
+        },
+        "eu-west-1": {
+          "mean_ms": 52.4,
+          "stdv_ms": 15.27,
+          "median_ms": 42.0
+        },
+        "us-east-1": {
+          "mean_ms": 58.13,
+          "stdv_ms": 16.24,
+          "median_ms": 70.0
+        },
+        "all": {
+          "mean_ms": 55.84,
+          "stdv_ms": 16.11,
+          "median_ms": 69.0
+        }
+      }
+    }
+  ],
+  "finality_mean_ms": 55.84,
+  "finality_median_ms": 69.0,
+  "rounds": 3
+}

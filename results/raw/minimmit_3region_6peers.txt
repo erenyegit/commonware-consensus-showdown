@@ -1,0 +1,213 @@
+[2m2026-05-16T09:26:32.504861Z[0m [34mDEBUG[0m [2mcommonware_estimator[0m[2m:[0m Initializing simulator [3mpeers[0m[2m=[0m6 [3margs.distribution[0m[2m=[0m{"ap-northeast-1": RegionConfig { count: 2, egress_cap: None, ingress_cap: None }, "eu-west-1": RegionConfig { count: 2, egress_cap: None, ingress_cap: None }, "us-east-1": RegionConfig { count: 2, egress_cap: None, ingress_cap: None }}
+[2m2026-05-16T09:26:32.504954Z[0m [34mDEBUG[0m [2mestimator[0m[2m:[0m loading latency data
+
+results for proposer 0 (ap-northeast-1):
+
+# Minimmit
+
+## Propose a block
+propose{0}
+
+## Multicast notarize
+wait{0, threshold=1}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 0.00ms (stdv: 0.00ms) | median: 0.00ms
+    [eu-west-1] mean: 99.00ms (stdv: 0.00ms) | median: 99.00ms
+    [us-east-1] mean: 73.00ms (stdv: 1.00ms) | median: 73.00ms
+broadcast{1}
+
+## Wait for 2f+1 to notarize
+wait{1, threshold=41%}
+    [proposer] latency: 148.00ms
+    [ap-northeast-1] mean: 146.50ms (stdv: 1.50ms) | median: 146.50ms
+    [eu-west-1] mean: 99.00ms (stdv: 0.00ms) | median: 99.00ms
+    [us-east-1] mean: 76.00ms (stdv: 1.00ms) | median: 76.00ms
+
+## Wait for n-f to finalize
+wait{1, threshold=81%}
+    [proposer] latency: 199.00ms
+    [ap-northeast-1] mean: 197.50ms (stdv: 1.50ms) | median: 197.50ms
+    [eu-west-1] mean: 105.50ms (stdv: 1.50ms) | median: 105.50ms
+    [us-east-1] mean: 133.50ms (stdv: 0.50ms) | median: 133.50ms
+
+results for proposer 1 (ap-northeast-1):
+
+# Minimmit
+
+## Propose a block
+propose{0}
+
+## Multicast notarize
+wait{0, threshold=1}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 1.50ms (stdv: 1.50ms) | median: 1.50ms
+    [eu-west-1] mean: 102.50ms (stdv: 2.50ms) | median: 102.50ms
+    [us-east-1] mean: 78.00ms (stdv: 1.00ms) | median: 78.00ms
+broadcast{1}
+
+## Wait for 2f+1 to notarize
+wait{1, threshold=41%}
+    [proposer] latency: 156.00ms
+    [ap-northeast-1] mean: 154.00ms (stdv: 2.00ms) | median: 154.00ms
+    [eu-west-1] mean: 105.50ms (stdv: 0.50ms) | median: 105.50ms
+    [us-east-1] mean: 78.50ms (stdv: 0.50ms) | median: 78.50ms
+
+## Wait for n-f to finalize
+wait{1, threshold=81%}
+    [proposer] latency: 204.00ms
+    [ap-northeast-1] mean: 202.50ms (stdv: 1.50ms) | median: 202.50ms
+    [eu-west-1] mean: 109.50ms (stdv: 0.50ms) | median: 109.50ms
+    [us-east-1] mean: 135.00ms (stdv: 0.00ms) | median: 135.00ms
+
+results for proposer 2 (eu-west-1):
+
+# Minimmit
+
+## Propose a block
+propose{0}
+
+## Multicast notarize
+wait{0, threshold=1}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 100.50ms (stdv: 0.50ms) | median: 100.50ms
+    [eu-west-1] mean: 1.00ms (stdv: 1.00ms) | median: 1.00ms
+    [us-east-1] mean: 35.50ms (stdv: 0.50ms) | median: 35.50ms
+broadcast{1}
+
+## Wait for 2f+1 to notarize
+wait{1, threshold=41%}
+    [proposer] latency: 70.00ms
+    [ap-northeast-1] mean: 103.00ms (stdv: 1.00ms) | median: 103.00ms
+    [eu-west-1] mean: 70.50ms (stdv: 0.50ms) | median: 70.50ms
+    [us-east-1] mean: 38.00ms (stdv: 1.00ms) | median: 38.00ms
+
+## Wait for n-f to finalize
+wait{1, threshold=81%}
+    [proposer] latency: 200.00ms
+    [ap-northeast-1] mean: 107.50ms (stdv: 1.50ms) | median: 107.50ms
+    [eu-west-1] mean: 199.00ms (stdv: 1.00ms) | median: 199.00ms
+    [us-east-1] mean: 174.50ms (stdv: 2.50ms) | median: 174.50ms
+
+results for proposer 3 (eu-west-1):
+
+# Minimmit
+
+## Propose a block
+propose{0}
+
+## Multicast notarize
+wait{0, threshold=1}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 104.00ms (stdv: 1.00ms) | median: 104.00ms
+    [eu-west-1] mean: 0.50ms (stdv: 0.50ms) | median: 0.50ms
+    [us-east-1] mean: 36.00ms (stdv: 0.00ms) | median: 36.00ms
+broadcast{1}
+
+## Wait for 2f+1 to notarize
+wait{1, threshold=41%}
+    [proposer] latency: 63.00ms
+    [ap-northeast-1] mean: 104.00ms (stdv: 1.00ms) | median: 104.00ms
+    [eu-west-1] mean: 65.00ms (stdv: 2.00ms) | median: 65.00ms
+    [us-east-1] mean: 36.00ms (stdv: 0.00ms) | median: 36.00ms
+
+## Wait for n-f to finalize
+wait{1, threshold=81%}
+    [proposer] latency: 207.00ms
+    [ap-northeast-1] mean: 110.00ms (stdv: 3.00ms) | median: 110.00ms
+    [eu-west-1] mean: 205.00ms (stdv: 2.00ms) | median: 205.00ms
+    [us-east-1] mean: 174.00ms (stdv: 5.00ms) | median: 174.00ms
+
+results for proposer 4 (us-east-1):
+
+# Minimmit
+
+## Propose a block
+propose{0}
+
+## Multicast notarize
+wait{0, threshold=1}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 71.50ms (stdv: 1.50ms) | median: 71.50ms
+    [eu-west-1] mean: 33.50ms (stdv: 0.50ms) | median: 33.50ms
+    [us-east-1] mean: 2.00ms (stdv: 2.00ms) | median: 2.00ms
+broadcast{1}
+
+## Wait for 2f+1 to notarize
+wait{1, threshold=41%}
+    [proposer] latency: 70.00ms
+    [ap-northeast-1] mean: 76.50ms (stdv: 0.50ms) | median: 76.50ms
+    [eu-west-1] mean: 34.50ms (stdv: 0.50ms) | median: 34.50ms
+    [us-east-1] mean: 67.50ms (stdv: 2.50ms) | median: 67.50ms
+
+## Wait for n-f to finalize
+wait{1, threshold=81%}
+    [proposer] latency: 145.00ms
+    [ap-northeast-1] mean: 130.00ms (stdv: 3.00ms) | median: 130.00ms
+    [eu-west-1] mean: 167.50ms (stdv: 1.50ms) | median: 167.50ms
+    [us-east-1] mean: 144.00ms (stdv: 1.00ms) | median: 144.00ms
+
+results for proposer 5 (us-east-1):
+
+# Minimmit
+
+## Propose a block
+propose{0}
+
+## Multicast notarize
+wait{0, threshold=1}
+    [proposer] latency: 0.00ms
+    [ap-northeast-1] mean: 69.50ms (stdv: 1.50ms) | median: 69.50ms
+    [eu-west-1] mean: 35.50ms (stdv: 0.50ms) | median: 35.50ms
+    [us-east-1] mean: 1.50ms (stdv: 1.50ms) | median: 1.50ms
+broadcast{1}
+
+## Wait for 2f+1 to notarize
+wait{1, threshold=41%}
+    [proposer] latency: 68.00ms
+    [ap-northeast-1] mean: 74.50ms (stdv: 3.50ms) | median: 74.50ms
+    [eu-west-1] mean: 37.00ms (stdv: 0.00ms) | median: 37.00ms
+    [us-east-1] mean: 69.00ms (stdv: 1.00ms) | median: 69.00ms
+
+## Wait for n-f to finalize
+wait{1, threshold=81%}
+    [proposer] latency: 142.00ms
+    [ap-northeast-1] mean: 136.00ms (stdv: 1.00ms) | median: 136.00ms
+    [eu-west-1] mean: 169.50ms (stdv: 2.50ms) | median: 169.50ms
+    [us-east-1] mean: 143.00ms (stdv: 1.00ms) | median: 143.00ms
+
+--------------------------------------------------------------------------------
+
+results:
+
+# Minimmit
+
+## Propose a block
+propose{0}
+
+## Multicast notarize
+wait{0, threshold=1}
+    [proposer] mean: 0.00ms (stdv: 0.00ms) | median: 0.00ms
+    [ap-northeast-1] mean: 57.83ms (stdv: 42.43ms) | median: 70.50ms
+    [eu-west-1] mean: 45.33ms (stdv: 41.57ms) | median: 34.50ms
+    [us-east-1] mean: 37.67ms (stdv: 30.20ms) | median: 36.00ms
+    [all] mean: 46.94ms (stdv: 39.36ms) | median: 36.00ms
+broadcast{1}
+
+## Wait for 2f+1 to notarize
+wait{1, threshold=41%}
+    [proposer] mean: 95.83ms (stdv: 39.85ms) | median: 70.00ms
+    [ap-northeast-1] mean: 109.75ms (stdv: 30.97ms) | median: 103.50ms
+    [eu-west-1] mean: 68.58ms (stdv: 27.29ms) | median: 68.50ms
+    [us-east-1] mean: 60.83ms (stdv: 17.32ms) | median: 69.00ms
+    [all] mean: 79.72ms (stdv: 33.60ms) | median: 75.50ms
+
+## Wait for n-f to finalize
+wait{1, threshold=81%}
+    [proposer] mean: 182.83ms (stdv: 27.95ms) | median: 199.50ms
+    [ap-northeast-1] mean: 147.25ms (stdv: 38.72ms) | median: 134.00ms
+    [eu-west-1] mean: 159.33ms (stdv: 39.21ms) | median: 168.00ms
+    [us-east-1] mean: 150.67ms (stdv: 17.27ms) | median: 143.50ms
+    [all] mean: 152.42ms (stdv: 33.73ms) | median: 143.50ms
+warning: commonware-macros-impl@2026.4.0: stability cfg not set; set RUSTFLAGS="--cfg commonware_stability_X" (ALPHA/BETA/GAMMA/DELTA/EPSILON) to enforce stability gating
+    Finished `release` profile [optimized] target(s) in 0.19s
+     Running `/Users/erenyegit/Code/monorepo/target/release/commonware-estimator minimmit.lazy --distribution 'us-east-1:2,eu-west-1:2,ap-northeast-1:2'`

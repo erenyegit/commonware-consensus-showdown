@@ -1,0 +1,146 @@
+{
+  "algorithm": "Kudzu (without Coding)",
+  "stages": [
+    {
+      "command": "propose",
+      "params": "0, size=32768",
+      "comment": "Propose a block (32KB proposal)",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "0, threshold=1",
+      "comment": "Multicast notarize (32B digest + 8B view)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 0.0,
+          "stdv_ms": 0.0,
+          "median_ms": 0.0
+        },
+        "ap-northeast-1": {
+          "mean_ms": 83.89,
+          "stdv_ms": 45.04,
+          "median_ms": 101.0
+        },
+        "eu-central-1": {
+          "mean_ms": 55.56,
+          "stdv_ms": 45.24,
+          "median_ms": 47.0
+        },
+        "eu-west-1": {
+          "mean_ms": 47.53,
+          "stdv_ms": 40.13,
+          "median_ms": 34.0
+        },
+        "sa-east-1": {
+          "mean_ms": 75.89,
+          "stdv_ms": 44.02,
+          "median_ms": 88.0
+        },
+        "us-east-1": {
+          "mean_ms": 42.73,
+          "stdv_ms": 23.98,
+          "median_ms": 45.0
+        },
+        "all": {
+          "mean_ms": 61.12,
+          "stdv_ms": 43.56,
+          "median_ms": 59.0
+        }
+      }
+    },
+    {
+      "command": "broadcast",
+      "params": "1, size=40",
+      "comment": "",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "1, threshold=61%",
+      "comment": "Wait for 3f+1 to notarize to multicast finalize (32B digest + 8B view)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 183.27,
+          "stdv_ms": 38.65,
+          "median_ms": 202.0
+        },
+        "ap-northeast-1": {
+          "mean_ms": 161.78,
+          "stdv_ms": 39.56,
+          "median_ms": 157.0
+        },
+        "eu-central-1": {
+          "mean_ms": 154.07,
+          "stdv_ms": 38.23,
+          "median_ms": 158.0
+        },
+        "eu-west-1": {
+          "mean_ms": 149.31,
+          "stdv_ms": 29.06,
+          "median_ms": 144.0
+        },
+        "sa-east-1": {
+          "mean_ms": 150.4,
+          "stdv_ms": 38.68,
+          "median_ms": 146.0
+        },
+        "us-east-1": {
+          "mean_ms": 143.47,
+          "stdv_ms": 16.31,
+          "median_ms": 147.0
+        },
+        "all": {
+          "mean_ms": 151.8,
+          "stdv_ms": 34.1,
+          "median_ms": 147.0
+        }
+      }
+    },
+    {
+      "command": "broadcast",
+      "params": "2, size=40",
+      "comment": "",
+      "stats": {
+        "proposer": {
+          "mean_ms": 196.87,
+          "stdv_ms": 28.09,
+          "median_ms": 206.0
+        },
+        "ap-northeast-1": {
+          "mean_ms": 214.2,
+          "stdv_ms": 16.38,
+          "median_ms": 216.0
+        },
+        "eu-central-1": {
+          "mean_ms": 215.02,
+          "stdv_ms": 18.74,
+          "median_ms": 210.0
+        },
+        "eu-west-1": {
+          "mean_ms": 204.93,
+          "stdv_ms": 18.14,
+          "median_ms": 212.0
+        },
+        "sa-east-1": {
+          "mean_ms": 216.98,
+          "stdv_ms": 13.94,
+          "median_ms": 212.0
+        },
+        "us-east-1": {
+          "mean_ms": 177.44,
+          "stdv_ms": 18.36,
+          "median_ms": 183.0
+        },
+        "all": {
+          "mean_ms": 205.72,
+          "stdv_ms": 22.65,
+          "median_ms": 209.0
+        }
+      }
+    }
+  ],
+  "finality_mean_ms": 151.8,
+  "finality_median_ms": 147.0,
+  "rounds": 2
+}

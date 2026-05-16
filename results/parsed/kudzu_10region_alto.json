@@ -1,0 +1,221 @@
+{
+  "algorithm": "Kudzu (without Coding)",
+  "stages": [
+    {
+      "command": "propose",
+      "params": "0, size=32768",
+      "comment": "Propose a block (32KB proposal)",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "0, threshold=1",
+      "comment": "Multicast notarize (32B digest + 8B view)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 0.0,
+          "stdv_ms": 0.0,
+          "median_ms": 0.0
+        },
+        "ap-northeast-1": {
+          "mean_ms": 73.48,
+          "stdv_ms": 41.53,
+          "median_ms": 73.0
+        },
+        "ap-northeast-2": {
+          "mean_ms": 81.88,
+          "stdv_ms": 44.62,
+          "median_ms": 81.0
+        },
+        "ap-south-1": {
+          "mean_ms": 77.68,
+          "stdv_ms": 37.15,
+          "median_ms": 72.5
+        },
+        "ap-southeast-2": {
+          "mean_ms": 91.53,
+          "stdv_ms": 43.98,
+          "median_ms": 87.5
+        },
+        "eu-central-1": {
+          "mean_ms": 66.26,
+          "stdv_ms": 44.58,
+          "median_ms": 71.5
+        },
+        "eu-north-1": {
+          "mean_ms": 73.99,
+          "stdv_ms": 48.04,
+          "median_ms": 79.5
+        },
+        "eu-west-1": {
+          "mean_ms": 62.66,
+          "stdv_ms": 42.43,
+          "median_ms": 63.0
+        },
+        "sa-east-1": {
+          "mean_ms": 102.43,
+          "stdv_ms": 45.13,
+          "median_ms": 106.5
+        },
+        "us-east-1": {
+          "mean_ms": 57.99,
+          "stdv_ms": 29.2,
+          "median_ms": 56.0
+        },
+        "us-west-1": {
+          "mean_ms": 64.76,
+          "stdv_ms": 29.97,
+          "median_ms": 67.0
+        },
+        "all": {
+          "mean_ms": 75.26,
+          "stdv_ms": 43.15,
+          "median_ms": 74.0
+        }
+      }
+    },
+    {
+      "command": "broadcast",
+      "params": "1, size=40",
+      "comment": "",
+      "stats": {}
+    },
+    {
+      "command": "wait",
+      "params": "1, threshold=61%",
+      "comment": "Wait for 3f+1 to notarize to multicast finalize (32B digest + 8B view)",
+      "stats": {
+        "proposer": {
+          "mean_ms": 196.93,
+          "stdv_ms": 37.43,
+          "median_ms": 200.5
+        },
+        "ap-northeast-1": {
+          "mean_ms": 173.78,
+          "stdv_ms": 32.34,
+          "median_ms": 172.5
+        },
+        "ap-northeast-2": {
+          "mean_ms": 180.16,
+          "stdv_ms": 33.06,
+          "median_ms": 182.5
+        },
+        "ap-south-1": {
+          "mean_ms": 172.72,
+          "stdv_ms": 18.73,
+          "median_ms": 178.5
+        },
+        "ap-southeast-2": {
+          "mean_ms": 191.41,
+          "stdv_ms": 34.59,
+          "median_ms": 191.5
+        },
+        "eu-central-1": {
+          "mean_ms": 175.06,
+          "stdv_ms": 27.89,
+          "median_ms": 179.5
+        },
+        "eu-north-1": {
+          "mean_ms": 183.09,
+          "stdv_ms": 28.87,
+          "median_ms": 182.0
+        },
+        "eu-west-1": {
+          "mean_ms": 168.54,
+          "stdv_ms": 25.08,
+          "median_ms": 175.0
+        },
+        "sa-east-1": {
+          "mean_ms": 211.17,
+          "stdv_ms": 17.5,
+          "median_ms": 208.5
+        },
+        "us-east-1": {
+          "mean_ms": 159.86,
+          "stdv_ms": 16.35,
+          "median_ms": 158.0
+        },
+        "us-west-1": {
+          "mean_ms": 170.94,
+          "stdv_ms": 19.26,
+          "median_ms": 177.0
+        },
+        "all": {
+          "mean_ms": 178.67,
+          "stdv_ms": 29.5,
+          "median_ms": 179.0
+        }
+      }
+    },
+    {
+      "command": "broadcast",
+      "params": "2, size=40",
+      "comment": "",
+      "stats": {
+        "proposer": {
+          "mean_ms": 233.53,
+          "stdv_ms": 34.19,
+          "median_ms": 237.0
+        },
+        "ap-northeast-1": {
+          "mean_ms": 206.07,
+          "stdv_ms": 28.91,
+          "median_ms": 200.0
+        },
+        "ap-northeast-2": {
+          "mean_ms": 214.23,
+          "stdv_ms": 24.28,
+          "median_ms": 206.5
+        },
+        "ap-south-1": {
+          "mean_ms": 197.48,
+          "stdv_ms": 19.47,
+          "median_ms": 202.0
+        },
+        "ap-southeast-2": {
+          "mean_ms": 217.51,
+          "stdv_ms": 30.35,
+          "median_ms": 211.0
+        },
+        "eu-central-1": {
+          "mean_ms": 207.68,
+          "stdv_ms": 24.42,
+          "median_ms": 200.0
+        },
+        "eu-north-1": {
+          "mean_ms": 218.09,
+          "stdv_ms": 25.25,
+          "median_ms": 210.0
+        },
+        "eu-west-1": {
+          "mean_ms": 208.61,
+          "stdv_ms": 24.91,
+          "median_ms": 203.0
+        },
+        "sa-east-1": {
+          "mean_ms": 240.94,
+          "stdv_ms": 25.37,
+          "median_ms": 232.5
+        },
+        "us-east-1": {
+          "mean_ms": 191.57,
+          "stdv_ms": 21.23,
+          "median_ms": 186.0
+        },
+        "us-west-1": {
+          "mean_ms": 190.47,
+          "stdv_ms": 21.43,
+          "median_ms": 191.0
+        },
+        "all": {
+          "mean_ms": 209.26,
+          "stdv_ms": 28.51,
+          "median_ms": 205.0
+        }
+      }
+    }
+  ],
+  "finality_mean_ms": 178.67,
+  "finality_median_ms": 179.0,
+  "rounds": 2
+}
