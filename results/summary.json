@@ -60,7 +60,7 @@
     "lazy_file": "minimmit.lazy",
     "distribution": "us-east-1:5",
     "dist_name": "1region_5peers",
-    "rounds": 3,
+    "rounds": 2,
     "finality_mean_ms": 7.36,
     "finality_median_ms": 7.0,
     "elapsed_s": 0.61
@@ -71,7 +71,7 @@
     "lazy_file": "minimmit.lazy",
     "distribution": "us-east-1:3,eu-west-1:2",
     "dist_name": "2region_5peers",
-    "rounds": 3,
+    "rounds": 2,
     "finality_mean_ms": 55.84,
     "finality_median_ms": 69.0,
     "elapsed_s": 0.6
@@ -82,7 +82,7 @@
     "lazy_file": "minimmit.lazy",
     "distribution": "us-east-1:2,eu-west-1:2,ap-northeast-1:2",
     "dist_name": "3region_6peers",
-    "rounds": 3,
+    "rounds": 2,
     "finality_mean_ms": 152.42,
     "finality_median_ms": 143.5,
     "elapsed_s": 0.65
@@ -93,7 +93,7 @@
     "lazy_file": "minimmit.lazy",
     "distribution": "us-east-1:3,eu-west-1:3,ap-northeast-1:3,sa-east-1:3,eu-central-1:3",
     "dist_name": "5region_15peers",
-    "rounds": 3,
+    "rounds": 2,
     "finality_mean_ms": 209.35,
     "finality_median_ms": 212.0,
     "elapsed_s": 0.7
@@ -104,7 +104,7 @@
     "lazy_file": "minimmit.lazy",
     "distribution": "us-west-1:3,us-east-1:3,eu-west-1:3,ap-northeast-1:3,eu-north-1:3,ap-south-1:3,sa-east-1:3,eu-central-1:3,ap-northeast-2:3,ap-southeast-2:3",
     "dist_name": "10region_alto",
-    "rounds": 3,
+    "rounds": 2,
     "finality_mean_ms": 209.28,
     "finality_median_ms": 205.0,
     "elapsed_s": 1.29

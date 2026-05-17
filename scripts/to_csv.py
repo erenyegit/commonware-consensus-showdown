@@ -36,6 +36,17 @@ OUT_HEADLINE_CSV = REPO_ROOT / "results" / "headlines.csv"
 # canonical name; the variant is preserved in a separate column.
 ALGO_PAREN_RE = re.compile(r"\s*\((.*?)\)\s*$")
 
+# Canonical protocol-phase counts. ``parse_estimator.py`` counts every
+# ``wait``/``collect`` stage in the ``.lazy`` output, which overcounts
+# Minimmit by one because the leading ``wait{0}`` is a "receive the
+# proposal" handshake rather than a separate protocol phase. Patrick (the
+# Minimmit author) flagged this on the first iteration of the post —
+# overriding here keeps every downstream artifact (CSV, plots, blog) in
+# sync with the protocol's actual phase count.
+PROTOCOL_ROUND_OVERRIDES = {
+    "Minimmit": 2,
+}
+
 
 def canonicalize_algorithm(name: str) -> tuple[str, str]:
     """Return (canonical_name, variant). Variant is "" if no parenthetical."""
@@ -108,6 +119,9 @@ def main() -> int:
 
         region_count, peer_count = split_distribution(distribution)
 
+        # Apply protocol-phase overrides (see PROTOCOL_ROUND_OVERRIDES above).
+        rounds = PROTOCOL_ROUND_OVERRIDES.get(algo, payload.get("rounds"))
+
         # Headline row (one per simulation)
         headline_rows.append(
             {
@@ -118,7 +132,7 @@ def main() -> int:
                 "distribution": distribution,
                 "region_count": region_count,
                 "peer_count": peer_count,
-                "rounds": payload.get("rounds"),
+                "rounds": rounds,
                 "finality_mean_ms": payload.get("finality_mean_ms"),
                 "finality_median_ms": payload.get("finality_median_ms"),
             }

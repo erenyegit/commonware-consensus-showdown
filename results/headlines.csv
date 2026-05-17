@@ -9,11 +9,11 @@ Kudzu,without Coding,Kudzu (without Coding),1region_5peers,us-east-1:5,1,5,2,5.4
 Kudzu,without Coding,Kudzu (without Coding),2region_5peers,"us-east-1:3,eu-west-1:2",2,5,2,52.92,64.0
 Kudzu,without Coding,Kudzu (without Coding),3region_6peers,"us-east-1:2,eu-west-1:2,ap-northeast-1:2",3,6,2,82.53,78.0
 Kudzu,without Coding,Kudzu (without Coding),5region_15peers,"us-east-1:3,eu-west-1:3,ap-northeast-1:3,sa-east-1:3,eu-central-1:3",5,15,2,151.8,147.0
-Minimmit,,Minimmit,10region_alto,"us-west-1:3,us-east-1:3,eu-west-1:3,ap-northeast-1:3,eu-north-1:3,ap-south-1:3,sa-east-1:3,eu-central-1:3,ap-northeast-2:3,ap-southeast-2:3",10,30,3,209.28,205.0
-Minimmit,,Minimmit,1region_5peers,us-east-1:5,1,5,3,7.36,7.0
-Minimmit,,Minimmit,2region_5peers,"us-east-1:3,eu-west-1:2",2,5,3,55.84,69.0
-Minimmit,,Minimmit,3region_6peers,"us-east-1:2,eu-west-1:2,ap-northeast-1:2",3,6,3,152.42,143.5
-Minimmit,,Minimmit,5region_15peers,"us-east-1:3,eu-west-1:3,ap-northeast-1:3,sa-east-1:3,eu-central-1:3",5,15,3,209.35,212.0
+Minimmit,,Minimmit,10region_alto,"us-west-1:3,us-east-1:3,eu-west-1:3,ap-northeast-1:3,eu-north-1:3,ap-south-1:3,sa-east-1:3,eu-central-1:3,ap-northeast-2:3,ap-southeast-2:3",10,30,2,209.28,205.0
+Minimmit,,Minimmit,1region_5peers,us-east-1:5,1,5,2,7.36,7.0
+Minimmit,,Minimmit,2region_5peers,"us-east-1:3,eu-west-1:2",2,5,2,55.84,69.0
+Minimmit,,Minimmit,3region_6peers,"us-east-1:2,eu-west-1:2,ap-northeast-1:2",3,6,2,152.42,143.5
+Minimmit,,Minimmit,5region_15peers,"us-east-1:3,eu-west-1:3,ap-northeast-1:3,sa-east-1:3,eu-central-1:3",5,15,2,209.35,212.0
 Simplex,,Simplex,10region_alto,"us-west-1:3,us-east-1:3,eu-west-1:3,ap-northeast-1:3,eu-north-1:3,ap-south-1:3,sa-east-1:3,eu-central-1:3,ap-northeast-2:3,ap-southeast-2:3",10,30,3,289.32,289.0
 Simplex,,Simplex,1region_5peers,us-east-1:5,1,5,3,8.8,9.0
 Simplex,,Simplex,2region_5peers,"us-east-1:3,eu-west-1:2",2,5,3,86.24,74.0

@@ -20,7 +20,7 @@ spread — using the official `commonware-estimator` tool with embedded
 | Algorithm | 1 region | 2 region | 3 region | 5 region | 10 region (alto) | Rounds |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | **Kudzu** | **5 ms** | **53 ms** | **83 ms** | **152 ms** | **179 ms** | **2** |
-| Minimmit | 7 ms | 56 ms | 152 ms | 209 ms | 209 ms | 3 |
+| Minimmit | 7 ms | 56 ms | 152 ms | 209 ms | 209 ms | 2 |
 | Simplex | 9 ms | 86 ms | 248 ms | 247 ms | 289 ms | 3 |
 | HotStuff | 19 ms | 156 ms | 412 ms | 435 ms | 483 ms | 5 |
 
