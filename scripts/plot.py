@@ -38,8 +38,10 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 HEADLINES_CSV = REPO_ROOT / "results" / "headlines.csv"
 PLOTS_DIR = REPO_ROOT / "plots"
 
-# Stable ordering / palette. The flagship-ish algorithms come first.
-ALGO_ORDER = ["Minimmit", "Simplex", "Kudzu", "HotStuff"]
+# Ordering: ascending by mean finality, which also happens to group the
+# protocols by phase count (2-round Kudzu/Minimmit, then 3-round Simplex,
+# then 5-round HotStuff). Reads as a clean staircase.
+ALGO_ORDER = ["Kudzu", "Minimmit", "Simplex", "HotStuff"]
 ALGO_COLORS = {
     "Minimmit": "#2e7d32",  # forest green — the apparent winner
     "Simplex": "#1565c0",   # blue — flagship Commonware

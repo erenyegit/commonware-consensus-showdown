@@ -2,11 +2,22 @@
 
 > Stress-testing four Byzantine-fault-tolerant consensus mechanisms from the
 > [Commonware Library][monorepo] on realistic AWS deployments using
-> [`commonware-estimator`][estimator]. Twenty simulations, ten AWS regions,
-> one clear winner.
+> [`commonware-estimator`][estimator]. Twenty deterministic simulations across
+> ten AWS regions.
 
 [monorepo]: https://github.com/commonwarexyz/monorepo
 [estimator]: https://github.com/commonwarexyz/monorepo/tree/main/examples/estimator
+
+> **Scope:** This measures **block finality** — the time until a proposed
+> block is final. That's the right metric for comparing two-round protocols
+> against five-round ones, but the wrong lens for separating the two-round
+> protocols from each other: Minimmit and Kudzu have close finality, and
+> Minimmit's real edge is shorter views / lower *transaction latency*, which
+> this setup doesn't measure. Without bandwidth + erasure coding, the matrix
+> mostly just confirms "fewer rounds win." For an equal-footing comparison that
+> folds in those axes, see the simulations at the end of the
+> [Minimmit paper](https://arxiv.org/abs/2508.10862). A follow-up covering them
+> is in progress. (h/t Patrick O'Grady for sharpening this.)
 
 ---
 
@@ -24,10 +35,14 @@ spread — using the official `commonware-estimator` tool with embedded
 | Simplex | 9 ms | 86 ms | 248 ms | 247 ms | 289 ms | 3 |
 | HotStuff | 19 ms | 156 ms | 412 ms | 435 ms | 483 ms | 5 |
 
-* **Kudzu wins on every topology** — by 23% to 46% over Minimmit, and
-  2.7× over HotStuff at production-like scale (10 regions).
-* **Round count dominates** when message sizes are small. Each extra
-  cross-WAN round costs ≈ a max-region-latency hop.
+* **Phase count puts you in a tier.** The two-round protocols (Kudzu,
+  Minimmit) lead, Simplex (3) is in the middle, HotStuff (5) trails — 2.7×
+  behind Kudzu at production scale. With tiny messages this is mostly
+  mechanical: fewer cross-WAN rounds, lower finality.
+* **The Kudzu/Minimmit gap here is _not_ a real ranking.** This measures block
+  finality with default-size messages; the two should be close, and Minimmit's
+  actual edge (shorter views → lower transaction latency) isn't captured. See
+  the Scope note above.
 * **3 regions is where geography really hurts** — finality jumps 2-3×
   compared to the 2-region baseline because the slowest validator-to-quorum
   edge now spans Pacific or Atlantic distances.
@@ -77,7 +92,7 @@ end-to-end "I have a final block" wall-clock cost for the proposer.
 
 ## Findings
 
-### 1. Round count is destiny
+### 1. Phase count sets the tier (but not the ranking)
 
 ![Mean block finality per algorithm](plots/rounds_vs_finality.png)
 
@@ -86,31 +101,33 @@ Averaged across all five topologies:
 | Algorithm | Mean finality | Round count |
 | --- | ---: | ---: |
 | Kudzu | **94 ms** | **2** |
-| Minimmit | 127 ms | 3 |
+| Minimmit | 127 ms | 2 |
 | Simplex | 176 ms | 3 |
 | HotStuff | 301 ms | 5 |
 
-The ordering is almost a perfect function of round count. HotStuff's
-five-step pipeline (PREPARE → VOTE → PRECOMMIT → COMMIT → DECIDE) eats two
-extra cross-WAN round-trips compared to Simplex/Minimmit, and three more
-than Kudzu's two-step pipeline. Once you're paying ~150 ms per round-trip
-through Tokyo and São Paulo, the round count is a multiplier on the WAN
-budget.
+Phase count is the dominant signal. As modeled in the shipped `.lazy` files,
+HotStuff runs the most `wait`/`collect` rounds, Simplex sits in the middle at
+three, and Minimmit and Kudzu finalize in two. Each extra cross-WAN round
+adds roughly one max-region-latency hop, so once you're paying ~150 ms per
+round-trip through Tokyo and São Paulo the round count acts as a fixed
+multiplier on the WAN budget. (Read each protocol's exact phase structure from
+the source; here I'm only counting the rounds the estimator plays out.)
 
-What's interesting is that **Minimmit beats Simplex even though they're both
-three-round protocols**. The estimator output makes the cause visible —
-Minimmit's third round is gated on a lower threshold (acknowledgements arrive
-sooner). Patrick's framing of Minimmit as "Simplex with the slow round
-pulled out" looks empirically correct.
+It isn't the whole story, though: **Kudzu and Minimmit are both two-phase but
+Kudzu still posts ~30 ms lower mean finality** (and ~70 ms lower at the
+3-region step). That gap lives inside the same phase budget, so it comes down
+to threshold rules and message structure — and, importantly, finality isn't
+what Minimmit was optimized for (see the Scope note). Round count puts you in
+a bucket; the design inside the bucket still matters.
 
-### 2. Kudzu wins everywhere
+### 2. Kudzu posts the lowest finality in every cell — with a caveat
 
 ![Block finality across algorithms and deployments](plots/finality_grouped_bars.png)
 
-Kudzu isn't just the cheapest on average — it's the cheapest in **every
-individual cell** of the matrix. The gap widens with geography:
+In raw block-finality terms, Kudzu comes out lowest in **every individual
+cell**:
 
-| Topology | Kudzu | Best non-Kudzu | Advantage |
+| Topology | Kudzu | Best non-Kudzu | Difference |
 | --- | ---: | ---: | ---: |
 | 1 region | 5 ms | 7 ms (Minimmit) | 25% |
 | 2 region | 53 ms | 56 ms (Minimmit) | 5% |
@@ -118,10 +135,14 @@ individual cell** of the matrix. The gap widens with geography:
 | 5 region | 152 ms | 209 ms (Minimmit) | 27% |
 | 10 region | 179 ms | 209 ms (Minimmit) | 14% |
 
-That 46% lead at 3 regions is the biggest gap in the dataset. Inside a single
-region, all algorithms are bottlenecked by the same ~1 ms intra-DC RTT.
-Once the network spans continents, every saved round-trip is worth tens of
-milliseconds — and Kudzu saves one.
+**Read this as "Kudzu's honest-path finality is competitive," not "Kudzu beats
+Minimmit."** It isn't an equal-footing comparison — `kudzu_small_block.lazy`
+vs. the default `minimmit.lazy`, different message/coding assumptions — and
+finality isn't the metric Minimmit was built to win. As Patrick notes, the two
+should be very close on finality once compared fairly; Minimmit's real edge is
+shorter views and lower transaction latency, which this setup never measures.
+The 3-region "46%" looks decisive but mostly reflects the specific `.lazy`
+configs picked here.
 
 ### 3. Geographic distribution has a knee at 3 regions
 
@@ -185,17 +206,27 @@ flattened CSVs in [`results/`][results-dir], and plots in
 
 ## Notes & limitations
 
+* **Finality is not transaction latency (the big one).** This measures block
+  finality — time until a proposed block is final. Minimmit was optimized for
+  shorter *views*, which lowers how long a transaction waits before it's even
+  proposed. Two protocols can have near-identical finality and very different
+  transaction latency, so these charts undersell what Minimmit was designed to
+  do. The simulations at the end of the
+  [Minimmit paper](https://arxiv.org/abs/2508.10862) compare Kudzu and Minimmit
+  on equal footing across these axes.
+* **Block size and erasure coding are out of scope — a bigger deal than it
+  sounds.** I ran the default-payload variants, so the matrix mostly measures
+  "fewer rounds win." The interesting Kudzu vs. Minimmit comparison only shows
+  up once bandwidth and coding are in play (`*_large_block.lazy`,
+  `*_large_block_coding_50.lazy`). That's the follow-up.
+* **The cells aren't strictly equal-footing.** Kudzu only ships a
+  `kudzu_small_block.lazy` without bandwidth limits, so it's compared against
+  the default `minimmit.lazy`. Different assumptions; don't read per-cell
+  deltas as a clean ranking.
 * **The estimator is event-driven, not a real network.** It models
   region-to-region latency from cloudping.co and (optionally) bandwidth caps,
   but doesn't simulate TCP slow-start, packet loss, OS scheduling jitter, or
-  signature verification CPU cost. Real numbers will be worse — by how much
-  depends on your message sizes and crypto setup. Treat these as a *floor*
-  on finality time.
-* **Block size and erasure coding are out of scope here.** I ran the
-  default (4-byte payload) variants of each `.lazy` file. The
-  `*_large_block.lazy` and `*_large_block_coding_50.lazy` files are next
-  on the list — bandwidth becomes the bottleneck above some block size, and
-  finding that knee is a separate study.
+  signature verification CPU cost. Treat these as a *floor* on finality time.
 * **Adversarial conditions are out of scope here.** The matrix uses the
   honest-fast-path `.lazy` files. The estimator ships `stall.lazy` and
   `simplex_with_delay.lazy` for stress scenarios; those produce a different
